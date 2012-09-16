@@ -1,0 +1,80 @@
+function [phi, K, X, Y] = ej3c(dx, dy, Lx, Ly, cond_inf, cond_sup, cond_izq, cond_der)
+    x = 0 : dx : Lx;
+    y = 0 : dy : Ly;
+    
+    Nx = length(x);
+    Ny = length(y);
+    N  = Nx * Ny;
+    
+    tipo_cond_inf = cond_inf(1);
+    tipo_cond_sup = cond_sup(1);
+    tipo_cond_izq = cond_izq(1);
+    tipo_cond_der = cond_der(1);
+    
+    val_cond_inf = str2num(cond_inf(2:length(cond_inf)));
+    val_cond_sup = str2num(cond_sup(2:length(cond_sup)));
+    val_cond_izq = str2num(cond_izq(2:length(cond_izq)));
+    val_cond_der = str2num(cond_der(2:length(cond_der)));
+    
+    Q = inline('2*(x^2 + y^2)');
+    
+    if Nx <= Ny
+        orden = 'x';
+        Nord = Nx;
+    else
+        orden = 'y';
+        Nord = Ny;
+    end
+    
+    K = zeros(N);
+    b = zeros(N, 1);
+    
+    for i = 1 : Nx
+        for j = 1 : Ny
+            p = pos(i, j, Nord, orden);
+            if i == 1 % Izquierda
+                if tipo_cond_inf == 'd' || tipo_cond_inf == 'D'
+                    K(p, p) = 1;
+                    b(p) = Tizq;
+                elseif tipo_cond_inf == 'n' || tipo_cond_inf == 'N'
+                    K(p, p) = -3/(2*dy);
+                    p2 = pos(i, j, Nord, orden);
+                    K(p, p2) = 2/dy;
+                    p2 = pos(i, j, Nord, orden);
+                    K(p, p2) = -1/(2*dy);
+                    b(p) = qinf;
+                end
+            elseif i == Nx % Derecha
+                K(p, p) = 1;
+                b(p) = Tder;
+            elseif j == 1 % Abajo
+                K(p, p) = -3/(2*dy);
+                p2 = pos(i, j+1, Nord, orden);
+                K(p, p2) = 2/dy;
+                p2 = pos(i, j+2, Nord, orden);
+                K(p, p2) = -1/(2*dy);
+                b(p) = qinf;
+            elseif j == Ny % Arriba
+                K(p, p) = 1;
+                b(p) = Tsup;
+            else
+                K(p,p) = -2/(dx*dx) - 2/(dy*dy);
+                p2 = pos(i, j+1, Nord, orden);
+                K(p,p2) = 1/(dy*dy);
+                p2 = pos(i, j-1, Nord, orden);
+                K(p,p2) = 1/(dy*dy);
+                p2 = pos(i+1, j, Nord, orden);
+                K(p,p2) = 1/(dx*dx);
+                p2 = pos(i-1, j, Nord, orden);
+                K(p,p2) = 1/(dx*dx);
+                b(p) = Q((i-1)*dx, (j-1)*dy);
+            end
+        end
+    end
+    
+    phi_vec = K \ b;
+    [m, n] = size(phi_vec);
+    
+    phi = reshape(phi_vec, Ny, Nx);
+    
+    [X, Y] = meshgrid(x, y);
