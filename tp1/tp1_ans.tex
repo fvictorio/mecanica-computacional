@@ -291,5 +291,28 @@
         veces. Sin embargo, a diferencia del ejercicio 2, la proporción de mejora aumenta
         al aumentar el número de nodos.
     }
+    \item{ % 5)
+        En los videos adjuntos \texttt{explicito.avi}, \texttt{implicito.avi} y \texttt{cn.avi}
+        se pueden ver los resultados de resolver este problema con los métodos de forward
+        Euler, backward Euler y Crank-Nicholson, respectivamente. Se obtuvo el primer segundo
+        y se usó $\Delta t = 0.01$.
+
+        Los resultados son casi indistinguibles, pero al hacerlos se apreciaron algunas
+        diferencias importantes entre los métodos.
+        
+        El método de forward Euler no converge para cualquier paso de tiempo (ya con 
+        $\Delta t = 0.05$ hay divergencia). El de backward Euler llega al mismo resultado
+        independientemente del paso del tiempo. El método de Crank-Nicholson, si bien
+        llega al resultado para pasos de tiempo con los que el de forward Euler no lo hace,
+        no parece admitir pasos de tiempo arbitrariamente grandes. Para, por ejemplo,
+        un paso de $\Delta t = 1$, y simulando los primeros cincuenta segundos, el resultado
+        alterna entre la solución correcta y una muy distinta.
+
+        En cuanto al tiempo, el primero demora $0.99$ segundos, el segundo $3.48$ y el
+        tercero $3.54$ (y, aunque no es necesario, se implementó el método de forward
+        Euler con una inversión de matriz al igual que los otros, así que es de esperar
+        que sea significativamente mayor la diferencia de tiempos entre éste y los
+        otros dos métodos si se lo implementa sin usar una matriz).
+    }
 \end{enumerate}
 \end{document}

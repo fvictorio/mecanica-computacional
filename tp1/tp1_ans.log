@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.8.16)  15 SEP 2012 21:33
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.8.16)  16 SEP 2012 23:07
 entering extended mode
  %&-line parsing enabled.
 **tp1_ans.tex
@@ -382,11 +382,11 @@ Overfull \hbox (13.88892pt too wide) in paragraph at lines 259--260
 
 [7 <./ej4.png (PNG copy)>] [8] (./tp1_ans.aux) ) 
 Here is how much of TeX's memory you used:
- 1156 strings out of 495061
- 14290 string characters out of 1182621
+ 1158 strings out of 495061
+ 14311 string characters out of 1182621
  71505 words of memory out of 3000000
- 4364 multiletter control sequences out of 15000+50000
- 4294 words of font info for 16 fonts, out of 3000000 for 9000
+ 4365 multiletter control sequences out of 15000+50000
+ 4462 words of font info for 17 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  25i,7n,19p,184b,299s stack positions out of 5000i,500n,10000p,200000b,50000s
 </usr/share/texmf-texlive/fonts
@@ -398,10 +398,10 @@ re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texl
 ive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/typ
 e1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/public/a
 msfonts/cm/cmsy7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-mti10.pfb>
-Output written on tp1_ans.pdf (8 pages, 286782 bytes).
+mti10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on tp1_ans.pdf (8 pages, 299780 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 81 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 
