@@ -74,36 +74,36 @@ function [u, Nx, Ny, Nt, X, Y] = ej5_cn(Lx, Ly, Lt, dx, dy, dt)
                     b(p) = Tsup;
                 else
                     % u_lm^n+1
-                    K(p,p) = 1/dt + 1/dx^2 + 1/dy^2;
+                    K(p,p) = 1/dt + (2*0.55)/dx^2 + (2*0.55)/dy^2;
                     
                     % u_lm^n
                     p2 = pos(i, j, k-1, Nx, Ny, orden);
-                    K(p, p2) = -1/dt + 1/dx^2 + 1/dy^2;
+                    K(p, p2) = -1/dt + (2*0.45)/dx^2 + (2*0.45)/dy^2;
                     
                     % u_l-1m^n+1
                     p2 = pos(i-1, j, k, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dx^2;
+                    K(p, p2) = -0.55/dx^2;
                     
                     p2 = pos(i+1, j, k, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dx^2;
+                    K(p, p2) = -0.55/dx^2;
                     
                     p2 = pos(i, j-1, k, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dy^2;
+                    K(p, p2) = -0.55/dy^2;
                     
                     p2 = pos(i, j+1, k, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dy^2;
+                    K(p, p2) = -0.55/dy^2;
                     
                     p2 = pos(i-1, j, k-1, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dx^2;
+                    K(p, p2) = -0.45/dx^2;
                     
                     p2 = pos(i+1, j, k-1, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dx^2;
+                    K(p, p2) = -0.45/dx^2;
                     
                     p2 = pos(i, j-1, k-1, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dy^2;
+                    K(p, p2) = -0.45/dy^2;
                     
                     p2 = pos(i, j+1, k-1, Nx, Ny, orden);
-                    K(p, p2) = -0.5/dy^2;
+                    K(p, p2) = -0.45/dy^2;
                     
                     b(p) = Q(x(i), y(j));
                 end

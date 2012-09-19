@@ -1,8 +1,8 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.8.16)  16 SEP 2012 23:22
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.8.16)  17 SEP 2012 15:34
 entering extended mode
  %&-line parsing enabled.
-**tp1_ans.tex
-(./tp1_ans.tex
+**tp2_ans.tex
+(./tp2_ans.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
 yphenation, loaded.
@@ -268,8 +268,8 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
-) (./tp1_ans.aux)
-\openout1 = `tp1_ans.aux'.
+) (./tp2_ans.aux)
+\openout1 = `tp2_ans.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
 LaTeX Font Info:    ... okay on input line 11.
@@ -307,109 +307,42 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <7> on input line 19.
 LaTeX Font Info:    External font `cmex10' loaded for size
 (Font)              <5> on input line 19.
-
-Overfull \hbox (86.26335pt too wide) in alignment at lines 33--37
- [][][] []
- []
-
-[1
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<ej2_N_8.png, id=18, 411.136pt x 308.352pt>
-File: ej2_N_8.png Graphic file (type png)
- <use ej2_N_8.png>
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 167--169
+ <ej1_cp.png, id=1, 411.136pt x 308.352pt>
+File: ej1_cp.png Graphic file (type png)
+ <use ej1_cp.png>
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 81--82
 [][] 
  []
 
-[3 <./ej2_N_8.png (PNG copy)>]
-<ej3_Dirichlet_0.png, id=24, 1096.898pt x 553.267pt>
-File: ej3_Dirichlet_0.png Graphic file (type png)
- <use ej3_Dirichlet_0.png>
-Overfull \hbox (27.77783pt too wide) in paragraph at lines 184--186
+<ej1_galerkin.png, id=2, 411.136pt x 308.352pt> [1
+
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
+File: ej1_galerkin.png Graphic file (type png)
+ <use ej1_galerkin.png>
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 83--85
 [][] 
  []
 
-<ej3_Dirichlet_100.png, id=25, 1096.898pt x 553.267pt>
-File: ej3_Dirichlet_100.png Graphic file (type png)
-
-<use ej3_Dirichlet_100.png>
-Overfull \hbox (27.77783pt too wide) in paragraph at lines 191--192
-[][] 
- []
-
-[4 <./ej3_Dirichlet_0.png (PNG copy)> <./ej3_Dirichlet_100.png (PNG copy)>]
-<ej3_Dirichlet_0_y_100.png, id=29, 1096.898pt x 553.267pt>
-File: ej3_Dirichlet_0_y_100.png Graphic file (type png)
-
-<use ej3_Dirichlet_0_y_100.png>
-Overfull \hbox (27.77783pt too wide) in paragraph at lines 201--202
-[][] 
- []
-
-
-<ej3_Dirichlet_0_y_100_esquinas_promediadas.png, id=30, 1096.898pt x 553.267pt>
-File: ej3_Dirichlet_0_y_100_esquinas_promediadas.png Graphic file (type png)
-<use ej3_Dirichlet_0_y_100_esquinas_promediadas.png>
-Overfull \hbox (27.77783pt too wide) in paragraph at lines 208--210
-[][] 
- []
-
-[5 <./ej3_Dirichlet_0_y_100.png (PNG copy)> <./ej3_Dirichlet_0_y_100_esquinas_p
-romediadas.png (PNG copy)>]
-Overfull \hbox (6.47285pt too wide) in paragraph at lines 227--229
-[]\OT1/cmr/m/n/10 Si ahora se im-pone una tem-per-atura de $100$ en los bor-des
- su-pe-rior, izquierdo
- []
-
-<ej3_Neumann_0_Dirichlet_100.png, id=34, 1096.898pt x 553.267pt>
-File: ej3_Neumann_0_Dirichlet_100.png Graphic file (type png)
-
-<use ej3_Neumann_0_Dirichlet_100.png>
-Overfull \hbox (27.77783pt too wide) in paragraph at lines 230--231
-[][] 
- []
-
-<ej3_Neumann_0_Punto_fijado_100.png, id=35, 1096.898pt x 553.267pt>
-File: ej3_Neumann_0_Punto_fijado_100.png Graphic file (type png)
-
-<use ej3_Neumann_0_Punto_fijado_100.png>
-Overfull \hbox (27.77783pt too wide) in paragraph at lines 239--240
-[][] 
- []
-
-[6 <./ej3_Neumann_0_Dirichlet_100.png (PNG copy)> <./ej3_Neumann_0_Punto_fijado
-_100.png (PNG copy)>] <ej4.png, id=39, 411.136pt x 308.352pt>
-File: ej4.png Graphic file (type png)
- <use ej4.png>
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 266--267
-[][] 
- []
-
-[7 <./ej4.png (PNG copy)>] [8] (./tp1_ans.aux) ) 
+[2 <./ej1_cp.png (PNG copy)> <./ej1_galerkin.png (PNG copy)>] (./tp2_ans.aux) )
+ 
 Here is how much of TeX's memory you used:
- 1182 strings out of 495061
- 14565 string characters out of 1182621
- 71559 words of memory out of 3000000
- 4379 multiletter control sequences out of 15000+50000
- 7804 words of font info for 28 fonts, out of 3000000 for 9000
+ 1146 strings out of 495061
+ 13552 string characters out of 1182621
+ 67559 words of memory out of 3000000
+ 4351 multiletter control sequences out of 15000+50000
+ 7290 words of font info for 26 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
- 25i,7n,19p,184b,301s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.
-pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/sh
-are/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-te
-xlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/
-type1/public/amsfonts/cm/cmr5.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/c
-msy10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb></
-usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/t
-exmf-texlive/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on tp1_ans.pdf (8 pages, 322896 bytes).
+ 25i,7n,19p,184b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
+/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/
+amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
+cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
+sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on tp2_ans.pdf (2 pages, 102394 bytes).
 PDF statistics:
- 89 PDF objects out of 1000 (max. 8388607)
+ 43 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 
