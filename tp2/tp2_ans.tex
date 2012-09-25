@@ -82,5 +82,35 @@
 
         \includegraphics[width=\textwidth]{ej1_galerkin.png}
     }
+    \item{ % 2)
+        La solución exacta al problema dado es:
+
+        \[ \phi(x) = \frac{1 + \sin(1) - \cos(1)}{\cos(1) + \sin(1)} \sin(x) + \cos(x) - 1 \]
+
+        Usando el método de los resiudos ponderados puede obtenerse una solución aproximada
+        de la forma $\psi + \sum_{m=1}^M a_m N_m$. Dado que hay una condición Dirichlet
+        y una Neumann, la primera se satisface haciendo $\psi = 0$ y $N_m|_{x=0} = 0$.
+        La condición Neumann se incluye en el residuo:
+
+        \[ R_\Omega = \frac{\mbox{d}^2\hat{\phi}}{\mbox{d}x^2} +
+                      \hat{\phi} + 1 \]
+
+        \[ R_\Gamma = \hat{\phi} + \frac{\mbox{d}^2\hat{\phi}}{\mbox{d}x^2} \]
+
+        Usando Galerkin, se llega a:
+
+        \[ K_{lm} = \int_0^1{\frac{\mbox{d}N_l}{\mbox{d}x} \frac{\mbox{d}N_m}{\mbox{d}x} \mbox{d}x} + 
+                    \int_0^1{N_l N_m \mbox{d}x}
+                    \int_0^1{\mbox{d}x} - [N_l N_m]_{x=1} \]
+
+        \[ f_l = -\int_0^1{N_l \mbox{d}x} \]
+
+        Utilizando $N_m = x^m$ para $m = 1, 2, \ldots$ como funciones de forma se obtienen las 
+        siguientes gráficas:
+
+        \includegraphics[width=\textwidth]{ej2_M_1.png}
+
+        \includegraphics[width=\textwidth]{ej2_M_2.png}
+    }
 \end{enumerate}
 \end{document}

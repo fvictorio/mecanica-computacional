@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.8.16)  17 SEP 2012 15:34
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.8.16)  21 SEP 2012 19:20
 entering extended mode
  %&-line parsing enabled.
 **tp2_ans.tex
@@ -323,26 +323,42 @@ Overfull \hbox (13.88892pt too wide) in paragraph at lines 83--85
 [][] 
  []
 
-[2 <./ej1_cp.png (PNG copy)> <./ej1_galerkin.png (PNG copy)>] (./tp2_ans.aux) )
- 
+[2 <./ej1_cp.png (PNG copy)> <./ej1_galerkin.png (PNG copy)>]
+<ej2_M_1.png, id=18, 411.136pt x 308.352pt>
+File: ej2_M_1.png Graphic file (type png)
+ <use ej2_M_1.png>
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 111--112
+[][] 
+ []
+
+<ej2_M_2.png, id=19, 411.136pt x 308.352pt> [3]
+File: ej2_M_2.png Graphic file (type png)
+ <use ej2_M_2.png>
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 113--115
+[][] 
+ []
+
+[4 <./ej2_M_1.png (PNG copy)> <./ej2_M_2.png (PNG copy)>] (./tp2_ans.aux) ) 
 Here is how much of TeX's memory you used:
- 1146 strings out of 495061
- 13552 string characters out of 1182621
+ 1156 strings out of 495061
+ 13700 string characters out of 1182621
  67559 words of memory out of 3000000
- 4351 multiletter control sequences out of 15000+50000
+ 4359 multiletter control sequences out of 15000+50000
  7290 words of font info for 26 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  25i,7n,19p,184b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share
-/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texl
-ive/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/t
-ype1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/
-amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/
-cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></u
-sr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on tp2_ans.pdf (2 pages, 102394 bytes).
+</us
+r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/tex
+mf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/
+fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1
+/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
+fonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr
+10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
+/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-
+texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+Output written on tp2_ans.pdf (4 pages, 127513 bytes).
 PDF statistics:
- 43 PDF objects out of 1000 (max. 8388607)
+ 55 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
