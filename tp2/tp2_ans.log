@@ -1,11 +1,11 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.8.16)  21 SEP 2012 19:20
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2012.9.25)  25 SEP 2012 22:45
 entering extended mode
  %&-line parsing enabled.
 **tp2_ans.tex
 (./tp2_ans.tex
 LaTeX2e <2009/09/24>
 Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
-yphenation, loaded.
+yphenation, spanish, galician, catalan, loaded.
 (/usr/share/texmf-texlive/tex/latex/base/article.cls
 Document Class: article 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/share/texmf-texlive/tex/latex/base/size10.clo
@@ -268,49 +268,76 @@ File: pdftex.def 2010/03/12 v0.04p Graphics/color for pdfTeX
 ))
 \Gin@req@height=\dimen103
 \Gin@req@width=\dimen104
+)
+(/usr/share/texmf-texlive/tex/generic/babel/babel.sty
+Package: babel 2008/07/06 v3.8l The Babel package
+
+(/usr/share/texmf-texlive/tex/generic/babel/spanish.ldf
+Language: spanish.ldf 2009/01/02 v5.0h Spanish support from the babel system
+
+(/usr/share/texmf-texlive/tex/generic/babel/babel.def
+File: babel.def 2008/07/06 v3.8l Babel common definitions
+\babel@savecnt=\count88
+\U@D=\dimen105
+)
+\es@datefmt=\count89
+\es@quottoks=\toks18
+\es@quotdepth=\count90
+Package babel Info: Making " an active character on input line 492.
+Package babel Info: Making . an active character on input line 585.
+Package babel Info: Making < an active character on input line 630.
+Package babel Info: Making > an active character on input line 630.
+))
+(/usr/share/texmf-texlive/tex/latex/tools/bm.sty
+Package: bm 2004/02/26 v1.1c Bold Symbol Support (DPC/FMi)
+\symboldoperators=\mathgroup4
+\symboldletters=\mathgroup5
+\symboldsymbols=\mathgroup6
+LaTeX Font Info:    Redeclaring math alphabet \mathbf on input line 138.
+LaTeX Info: Redefining \bm on input line 204.
 ) (./tp2_ans.aux)
 \openout1 = `tp2_ans.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
+LaTeX Font Info:    ... okay on input line 27.
 
 (/usr/share/texmf-texlive/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count88
-\scratchdimen=\dimen105
+\scratchcounter=\count91
+\scratchdimen=\dimen106
 \scratchbox=\box26
-\nofMPsegments=\count89
-\nofMParguments=\count90
-\everyMPshowfont=\toks18
-\MPscratchCnt=\count91
-\MPscratchDim=\dimen106
-\MPnumerator=\count92
-\everyMPtoPDFconversion=\toks19
+\nofMPsegments=\count92
+\nofMParguments=\count93
+\everyMPshowfont=\toks19
+\MPscratchCnt=\count94
+\MPscratchDim=\dimen107
+\MPnumerator=\count95
+\everyMPtoPDFconversion=\toks20
 )
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 13.
+(Font)              <12> on input line 29.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 13.
+(Font)              <8> on input line 29.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 13.
+(Font)              <6> on input line 29.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 19.
+(Font)              <7> on input line 35.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 19.
+(Font)              <5> on input line 35.
  <ej1_cp.png, id=1, 411.136pt x 308.352pt>
 File: ej1_cp.png Graphic file (type png)
  <use ej1_cp.png>
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 81--82
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 97--98
 [][] 
  []
 
@@ -319,7 +346,7 @@ Overfull \hbox (13.88892pt too wide) in paragraph at lines 81--82
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
 File: ej1_galerkin.png Graphic file (type png)
  <use ej1_galerkin.png>
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 83--85
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 99--101
 [][] 
  []
 
@@ -327,38 +354,62 @@ Overfull \hbox (13.88892pt too wide) in paragraph at lines 83--85
 <ej2_M_1.png, id=18, 411.136pt x 308.352pt>
 File: ej2_M_1.png Graphic file (type png)
  <use ej2_M_1.png>
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 111--112
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 127--128
 [][] 
  []
 
 <ej2_M_2.png, id=19, 411.136pt x 308.352pt> [3]
 File: ej2_M_2.png Graphic file (type png)
  <use ej2_M_2.png>
-Overfull \hbox (13.88892pt too wide) in paragraph at lines 113--115
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 129--131
 [][] 
  []
 
-[4 <./ej2_M_1.png (PNG copy)> <./ej2_M_2.png (PNG copy)>] (./tp2_ans.aux) ) 
+[4 <./ej2_M_1.png (PNG copy)> <./ej2_M_2.png (PNG copy)>]
+Overfull \hbox (17.87216pt too wide) in paragraph at lines 141--144
+[]\OT1/cmr/m/n/10 Aproximamos la so-lu-ci^^Son con una fun-ci^^Son de la for-ma
+ $[] = \OML/cmm/m/it/10   \OT1/cmr/m/n/10 + [][] \OML/cmm/m/it/10 a[]N[]\OT1/cm
+r/m/n/10 (\OML/cmm/m/it/10 x; y\OT1/cmr/m/n/10 )$.
+ []
+
+
+Overfull \hbox (60.85925pt too wide) in alignment at lines 158--169
+ [][][] []
+ []
+
+<ej3.png, id=27, 1096.898pt x 553.267pt>
+File: ej3.png Graphic file (type png)
+ <use ej3.png>
+Overfull \hbox (13.88892pt too wide) in paragraph at lines 180--182
+[][] 
+ []
+
+[5] [6 <./ej3.png (PNG copy)>] [7] [8] (./tp2_ans.aux) ) 
 Here is how much of TeX's memory you used:
- 1156 strings out of 495061
- 13700 string characters out of 1182621
- 67559 words of memory out of 3000000
- 4359 multiletter control sequences out of 15000+50000
- 7290 words of font info for 26 fonts, out of 3000000 for 9000
- 28 hyphenation exceptions out of 8191
- 25i,7n,19p,184b,287s stack positions out of 5000i,500n,10000p,200000b,50000s
-</us
-r/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/tex
-mf-texlive/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/
-fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1
-/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/public/ams
-fonts/cm/cmmi7.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr
-10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-
-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on tp2_ans.pdf (4 pages, 127513 bytes).
+ 1879 strings out of 494999
+ 22180 string characters out of 1180816
+ 82492 words of memory out of 3000000
+ 5062 multiletter control sequences out of 15000+50000
+ 12508 words of font info for 43 fonts, out of 3000000 for 9000
+ 54 hyphenation exceptions out of 8191
+ 25i,8n,27p,211b,302s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texmf-texli
+ve/fonts/type1/public/amsfonts/cm/cmbsy10.pfb></usr/share/texmf-texlive/fonts/t
+ype1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/c
+m/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi10.pf
+b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-texl
+ive/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cmextra/cmmib7.pfb></usr/share/texmf-texlive/fonts/type1/
+public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfo
+nts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr5.
+pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/sha
+re/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-te
+xlive/fonts/type1/public/amsfonts/cm/cmsy7.pfb>
+Output written on tp2_ans.pdf (8 pages, 254414 bytes).
 PDF statistics:
- 55 PDF objects out of 1000 (max. 8388607)
+ 94 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

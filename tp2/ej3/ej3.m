@@ -24,8 +24,6 @@ a = K \ f;
 x = [-1 : 0.05 : 1];
 y = [-1 : 0.05 : 1];
 
-plot(x, N(1,x,y)); return;
-
 [X, Y] = meshgrid(x, y);
 phi = psi(X, Y);
 for m = 1 : M
