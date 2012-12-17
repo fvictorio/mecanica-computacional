@@ -1,0 +1,321 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{bm}
+\usepackage{amsmath}%
+
+\title{\textbf{Mecánica computacional - Trabajo Práctico 3}}
+\author{FILARDI, Esteban; ROJAS FREDINI, Emmanuel; VICTORIO, Franco}
+\date{}
+
+\def\intone{\int_{-1}^1}
+\def\intzeroone{\int_{0}^1}
+\def\dx{\mbox{d}x}
+\def\dy{\mbox{d}y}
+\def\domega{\mbox{d}\Omega}
+\def\dgamma{\mbox{d}\Gamma}
+\def\summ{\sum_{m=1}^M}
+\def\dxx#1{\frac{\mbox{d}^2 #1}{\mbox{d}x^2}}
+\def\partialx#1{\frac{\partial #1}{\partial x}}
+\def\partialy#1{\frac{\partial #1}{\partial y}}
+\def\partialxx#1{\frac{\partial^2 #1}{\partial x^2}}
+\def\partialyy#1{\frac{\partial^2 #1}{\partial y^2}}
+\def\hatsigmax{\hat{\sigma}_x}
+\def\hatsigmay{\hat{\sigma}_y}
+\def\hattauxy{\hat{\tau}_{xy}}
+\def\hatphi{\hat{\phi}}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[1)]
+    \setcounter{enumi}{1}
+    \item{ % 2)
+        Si se divide uniformemente el intervalo en elementos y se desea utilizar funciones 
+        cuadráticas, a cada elemento debe agregársele un nodo interno (a la mitad, por
+        ejemplo) de modo de tener tres puntos para definir la parábola. Sean estos nodos
+        $i$, $j$ y $k$ y sea $h$ el tamaño del elemento. Cada elemento tendrá entonces
+        tres funciones de forma asociadas $N_\alpha$ que valen $1$ en el nodo $\alpha$
+        y $0$ en los otros dos.
+
+        Si se considera al elemento centrado en $0$, el nodo $i$ estará en $-\frac{h}{2}$,
+        el nodo $j$ estará en $0$ y el nodo $k$ estará en $\frac{h}{2}$. La función
+        $N_i(x)$ tendrá la forma $N_i(x) = a x^2 + b x + c$ y los coeficientes se
+        obtienen haciendo $N_i(-\frac{h}{2}) = 1$, $N_i(0) = 0$ y $N_i(\frac{h}{2}) = 0$.
+        Resolviendo el sistema, la función toma la forma $N_i(x) = \frac{2}{h^2} x^2
+        - \frac{1}{h} x$. De forma similar se obtienen $N_j$ y $N_k$:
+
+        \begin{eqnarray*}
+            N_i(x) &=& \frac{2}{h^2} x^2 - \frac{1}{h} x \\
+            N_j(x) &=& -\frac{4}{h^2} x^2 + 1 \\
+            N_k(x) &=& \frac{2}{h^2} x^2 + \frac{1}{h} x \\
+        \end{eqnarray*}
+
+        Se tiene el problema $-\partialxx{\phi} = f(x)$ y se utiliza una aproximación
+        a la solución de la forma $\hat{\phi} = \summ \phi_m N_m$, el residuo en el
+        interior es $R_\Omega = f(x) + \partialxx{\hatphi}$. Utilizamos el método
+        de residuos ponderados y obtenemos:
+
+        \begin{eqnarray*}
+            \int_\Omega W_l R_\Omega \domega &=& 0 \\
+            \intzeroone W_l \left( f(x) + \partialxx{\hatphi} \right) \dx &=& 0 \\
+        \end{eqnarray*}
+
+        Debilitando en la última expresión, ésta se transforma en:
+
+        \begin{eqnarray*}
+            \intzeroone W_l f(x) \dx - 
+            \intzeroone \partialx{W_l} \partialx{\hatphi} \dx + 
+            \left[ W_l \partialx{\hatphi} \right]_0^1  &=& 0 \\
+            \intzeroone \partialx{W_l} \partialx{\hatphi} \dx -
+            \left[ W_l \partialx{\hatphi} \right]_0^1 &=& 
+            \intzeroone W_l f(x) \dx \\
+            \summ \phi_m \intzeroone \partialx{N_l} \partialx{N_m} \dx -
+            \left[ N_l \summ \phi_m \partialx{N_m} \right]_0^1 &=& \intzeroone N_l f(x) \dx  \\
+        \end{eqnarray*}
+
+        Como todas las funciones de forma salvo la primera y la última son cero en los extremos,
+        y como $\phi_m$ se anula en estos puntos, la expresión de contorno es cero y la expresión
+        resultante es:
+
+        \begin{eqnarray*}
+            \summ \phi_m \intzeroone \partialx{N_l} \partialx{N_m} \dx
+            &=& \intzeroone N_l f(x) \dx  \\
+        \end{eqnarray*}
+
+        Esto puede escribirse en la forma $\boldsymbol{K} \boldsymbol{\phi} = \boldsymbol{f}$,
+        donde:
+
+        \[ K_{lm} = \intzeroone \partialx{N_l} \partialx{N_m} \dx \]
+        \[ f_l = \intzeroone N_l f(x) \dx \]
+
+        Como las funciones de forma utilizadas son de soporte compacto, la matriz
+        $\boldsymbol{K}$ puede expresarse como el ensamblado de $M-1$ matrices
+        elementales $\boldsymbol{K^e}$ (una por cada elemento). En cada elemento
+        hay tres funciones de forma no-nulas, y por lo tanto las matrices
+        $\boldsymbol{K^e}$ serán de tres por tres. Como se asume que el intervalo
+        está definido uniformemente, todas las $\boldsymbol{K^e}$ tendrán la misma
+        forma. El componente $K_{1 1}^e$ por ejemplo se obtiene haciendo:
+
+        \[ \int_{-\frac{h}{2}}^{\frac{h}{2}} \left( \partialx{N_i} \right)^2 \dx 
+           = \frac{7}{3h} \]
+
+        Y el componente $K_{1 2}^e$:
+
+        \[ \int_{-\frac{h}{2}}^{\frac{h}{2}} 
+        \left( \partialx{N_i} \partialx{N_j} \right) \dx 
+           = -\frac{8}{3h} \]
+
+        De la misma forma se obtiene el resto de los componentes. La matriz elemental
+        resultante es:
+
+        \[ \boldsymbol{K^e} = \frac{1}{3 h} \left( \begin{array}{ccc} 
+        7 & -8 & 1 \\
+        -8 & 16 & -8 \\
+        1 & -8 & 7 \\
+        \end{array} \right) \]
+
+        La matriz $\boldsymbol{K}$ se obtiene ensamblando estas matrices elementales.
+        Por ejemplo, si se tienen tres elementos:
+
+        \[ \boldsymbol{K} = \frac{1}{3h} \left( \begin{array}{ccccccc}
+        7 & -8 & 1 & 0 & 0 & 0 & 0       \\
+        -8 & 16 & -8 & 0 & 0 & 0 & 0     \\
+        1 & -8 & (7+7) & -8 & 1 & 0 & 0  \\
+        0 & 0  & -8 & 16 & -8 & 0 & 0    \\
+        0 & 0  & 1 & -8 & (7+7) & -8 & 1 \\
+        0 & 0  & 0 & 0  & -8 & 16 & -8   \\
+        0 & 0  & 0 & 0  & 1  & -8 & 7    \\
+        \end{array} \right) \]
+    }
+    \setcounter{enumi}{3}
+    \item{ % 4)
+        Ecuacion Diferencial:
+
+        \begin{equation}
+            \frac{\partial }{\partial x}\left(k \frac{\partial T}{\partial x}\right) + \frac{\partial }{\partial y} \left( k \frac{\partial T}{\partial y} \right) + Q - c \left( T - T_{amb} \right) = 0
+        \end{equation}
+
+        \begin{itemize}
+            \item Donde k cte escalar.
+            \item Donde Q cte escalar, al menos dentro de 1 elemento.
+        \end{itemize}
+
+        CC:
+        \begin{align}
+            k \frac{\partial T}{\partial \vec{n}} &= -h\left( T- T_{amb} \right)   &\Gamma_{\inf}\\
+            k \frac{\partial T}{\partial \vec{n}} &= -\bar{q}   &\Gamma_{q}\\
+            T                                     &=  \bar{T} &\Gamma_{\phi}
+        \end{align}
+
+        Nuestra aproximacion sera:
+
+        \begin{equation}
+            T \approx \hat{T} = \sum{ a_m N_m\left(x\right)}
+        \end{equation}
+
+        Las condiciones Dirichlet en los bordes $\Gamma_{\phi}$ se impondran en la matriz ensamblada, es decir se impondran los 
+        coeficientes $a$ a el valor correspondiente.\\
+
+        Nuestra aproximacion de MRP sera:
+
+        \begin{align*}
+            \int{W_l \left( k \frac{\partial^2 \hat{T}}{\partial x^2} + Q + c\left(\hat{T}-T_{amb}\right) \right) d\Omega} +\\
+             \int{ \bar{W_l} \left( -k\frac{\partial \hat{T}}{\partial \vec{n}} + h\left(\hat{T}-T_{amb}\right) \right) d\Gamma_{\inf}} + \int{\bar{W_l} \left(k\frac{\partial \hat{T}}{\partial \vec{n}}+ \bar{q} \right) d\Gamma_{q}}= 0
+        \end{align*}
+
+        Debilitamos:
+
+        \begin{align*}
+            - k\int{ \frac{\partial W_l}{\partial x} \frac{\partial \hat{T}}{\partial x} d\Omega} + k\int{ W_l \frac{\partial \hat{T}}{\partial \vec{n}} d\Gamma_{\inf+q+\phi}} + \int{W_l \left( Q + c\left(\hat{T}-T_{amb}\right) \right) d\Omega} +\\
+            \int{ \bar{W_l} \left( -k\frac{\partial \hat{T}}{\partial \vec{n}} + h\left(\hat{T}-T_{amb}\right) \right) d\Gamma_{\inf}} + \int{\bar{W_l} \left(k\frac{\partial \hat{T}}{\partial \vec{n}}+ \bar{q} \right) d\Gamma_{q}} = 0
+        \end{align*}
+
+        Elegimos: 
+        \begin{align*}
+            \bar{W_l} &= -W_l \hspace{10pt} &en \hspace{10pt} \Gamma_{\inf}\\
+            W_l       &= 0	  \hspace{10pt} &en \hspace{10pt} \Gamma_{\phi}\\
+            \bar{W_l} &= -W_l \hspace{10pt} &en \hspace{10pt} \Gamma_{q}\\
+        \end{align*}
+
+        \begin{equation*}
+            - k\int{ \frac{\partial W_l}{\partial x} \frac{\partial \hat{T}}{\partial x} d\Omega} + \int{W_l \left( Q + c\left(\hat{T}-T_{amb}\right) \right) d\Omega} - h \int{ W_l \left(\hat{T}-T_{amb}\right) d\Gamma_{\inf}} - \int{ W_l \bar{q} d\Gamma_{q}} = 0
+        \end{equation*}
+
+        Usamos Galerkin, es decir $W_l = N_l$:
+
+        \begin{equation*}
+            - k\int{ \frac{\partial N_l}{\partial x} \frac{\partial \hat{T}}{\partial x} d\Omega} + \int{N_l \left( Q + c\left(\hat{T}-T_{amb}\right) \right) d\Omega} - h \int{ N_l \left(\hat{T}-T_{amb}\right) d\Gamma_{\inf}} - \int{ N_l \bar{q} d\Gamma_{q}} = 0
+        \end{equation*}
+
+        Reemplazamos $\hat{T}$:
+
+        \begin{align*}
+            \sum{ - k\int{ \frac{\partial N_l}{\partial x} \frac{\partial \sum{a_m N_m}}{\partial x} d\Omega} + \int{N_l \left( Q + c\left(\sum{a_m N_m}-T_{amb}\right) \right) d\Omega} - }\\
+            h \int{ N_l \left(\sum{a_m N_m}-T_{amb}\right) d\Gamma_{\inf}} - \int{ N_l \bar{q} d\Gamma_{q}} = 0
+        \end{align*}
+
+        \begin{align*}
+            \sum{ - k\int{ \frac{\partial N_l}{\partial x} \frac{\partial N_m}{\partial x} d\Omega} a_m + c\int{N_l N_m d\Omega} a_m + \int{N_l \left( Q - cT_{amb}\right) d\Omega} - }\\ 
+            h \int{ N_l \left(N_m-T_{amb}\right) d\Gamma_{\inf}} a_m - \int{ N_l \bar{q} d\Gamma_{q}} = 0
+        \end{align*}
+
+        \begin{align*}
+            \sum{ \left[ - k\int{ \frac{\partial N_l}{\partial x} \frac{\partial N_m}{\partial x} + c N_l N_m  d\Omega} - h \int{ N_l \left(N_m-T_{amb}\right) d\Gamma_{\inf}} \right] a_m }  &=\\
+            &-\int{N_l \left( Q - cT_{amb}\right) d\Omega} + \int{ N_l \bar{q} d\Gamma_{q}}
+        \end{align*}
+
+        Las matrices elementales son:
+
+        \begin{align}
+            K_{l,m}^{e} &= k\int{ \frac{\partial N_l}{\partial x} \frac{\partial N_m}{\partial x} + c N_l N_m  d\Omega^{e}} - h \int{ N_l \left(N_m-T_{amb}\right) d\Gamma_{\inf}^{e}}\\
+            f_{l}^{e}   &= \int{N_l \left( Q - cT_{amb}\right) d\Omega^{e}} - \int{ N_l \bar{q} d\Gamma_{q}}
+        \end{align}
+
+        \begin{enumerate}[I.]
+        \item \textbf{Caso particular}
+
+        Se condidera el caso donde:
+        \begin{itemize}
+            \item c = 0
+            \item k = 1
+            \item Q = 1 para $x \in \left[0,\frac{1}{2}\right]$
+            \item Q = 0 para $x \in \left(\frac{1}{2},1\right]$
+        \end{itemize}
+
+        Condiciones de contorno:
+        \begin{itemize}
+            \item $\bar{T} = 1$ en $x=0$
+            \item $\bar{T} = 0$ en $x=1$
+        \end{itemize}
+
+        Ya que las condiciones Dirichlet las impondremos en la matriz ensamblada luego las matrices elementales se simplificaran a:
+
+        \begin{align}
+            K_{l,m}^{e} &=  k\int{ \frac{\partial N_l}{\partial x} \frac{\partial N_m}{\partial x} d\Omega^{e}}\\
+            f_{l}^{e}   &= Q \int{N_l d\Omega^{e}}
+        \end{align}
+
+        \item \textbf{Funciones de Forma}
+
+        Usaremos elementos formados por 2 nodos y funciones de forma lineales que sera:
+
+        \begin{itemize}
+            \item $N_i = \frac{h-x}{h}$
+            \item $N_j = 1-\frac{h-x}{h}$
+        \end{itemize}
+
+        Donde $h$ es el ancho de cada elemento.
+        Con derivadas:
+
+        \begin{itemize}
+            \item $\frac{\partial N_i}{\partial x} = \frac{-1}{h}$
+            \item $\frac{\partial N_j}{\partial x} = \frac{1}{h}$
+        \end{itemize}
+
+        \item \textbf{Resultados}
+
+        Tomaremos $L=1$. El resultado con 2 condiciones de contorno Dirichlet siguientes es:
+
+        \begin{itemize}
+            \item En $x=0$ condicion Dirichlet $T=1$
+            \item En $x=1$ condicion Dirichlet $T=0$
+        \end{itemize}
+
+        \begin{center}
+            \includegraphics[scale=0.8]{Ejercicio2Dirichlet.png}
+        \end{center}
+
+        El resultado con 1 condiciones de contorno Dirichlet y una Newmann tal que:
+
+        \begin{itemize}
+            \item En $x=0$ condicion Dirichlet $T=1$
+            \item En $x=1$ condicion Newmann   $k\frac{\partial T}{\partial \vec{n}}=0$
+        \end{itemize}
+
+        \begin{center}
+            \includegraphics[scale=0.8]{Ejercicio2Newmann.png}
+        \end{center}
+
+        Haciendo pruebas de error de la aproximacion del metodo de elementos finitos, en el caso de fronteras Dirchlet, con respecto
+        a la solucion analitica, podemos ver que a medida que refinamos la malla el error disminuye de la siguiente forma:
+
+        \begin{center}
+            \includegraphics[scale=0.8]{ErrorVsCantidadNodos.png}
+        \end{center}
+
+        El error se midio como el error cuadratico medio.\\
+        Es decir que el error disminuye de forma cuadratica a medida que se agregan nodos a la malla, y este aumento de nodos en la malla
+        significa un aumento igual de elementos, ya que se tomaron elementos lineales formados por 2 nodos.\\
+        Podemos ver que la grafica de la funcion $y=\frac{1}{x^2}$ es:
+
+        \begin{center}
+            \includegraphics[scale=0.8]{Y=1DivXCuadrado.png}
+        \end{center}
+
+        Tiene la misma tendencia que el resultado del error por esto decimos que el error disminuye cuadraticamente con la cantidad de nodos.
+        \end{enumerate}
+    }
+    \item{ % 5)
+        \begin{enumerate}[a)]
+        \item{
+            Utilizando $L = b(x) = P = E = A = 1$, los desplazamientos y tensiones son:
+            \includegraphics[width=\textwidth]{5ad.png}
+            \includegraphics[width=\textwidth]{5at.png}
+        }
+        \item{
+            Utilizando $L = b(x) = P = E = 1$, los desplazamientos y tensiones son:
+            \includegraphics[width=\textwidth]{5bd.png}
+            \includegraphics[width=\textwidth]{5bt.png}
+
+            (En ningún caso se grafican las deformaciones ya que son iguales a las tensiones
+            por ser $E=1$.)
+        }
+        \end{enumerate}
+    }
+\end{enumerate}
+\end{document}

@@ -1,0 +1,162 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{hyperref}
+
+\title{\textbf{Mecánica computacional - Trabajo Práctico 4}}
+\author{FILARDI, Esteban; ROJAS FREDINI, Emmanuel; VICTORIO, Franco}
+\date{}
+
+\def\intone{\int_{-1}^1}
+\def\intzeroone{\int_{0}^1}
+\def\dx{\mbox{d}x}
+\def\dy{\mbox{d}y}
+\def\domega{\mbox{d}\Omega}
+\def\domegae{\mbox{d}\Omega^e}
+\def\dgamma{\mbox{d}\Gamma}
+\def\intomega#1{\int_\Omega #1 \domega}
+\def\intomegae#1{\int_{\Omega^e} #1 \domega}
+\def\summ{\sum_{m=1}^M}
+\def\dxx#1{\frac{\mbox{d}^2 #1}{\mbox{d}x^2}}
+\def\partialx#1{\frac{\partial #1}{\partial x}}
+\def\partialy#1{\frac{\partial #1}{\partial y}}
+\def\partialn#1{\frac{\partial #1}{\partial n}}
+\def\partialxx#1{\frac{\partial^2 #1}{\partial x^2}}
+\def\partialyy#1{\frac{\partial^2 #1}{\partial y^2}}
+\def\hatsigmax{\hat{\sigma}_x}
+\def\hatsigmay{\hat{\sigma}_y}
+\def\hattauxy{\hat{\tau}_{xy}}
+\def\hatphi{\hat{\phi}}
+
+\begin{document}
+
+\maketitle
+
+\begin{enumerate}[1)]
+    \item{ % 1)
+        Para una variable dependiente $T$ el operador laplaciano toma la forma
+        $\Delta T = \partialxx{T} + \partialyy{T}$. Si éste forma parte de la ecuación
+        del método de residuos ponderados con Galerkin, el término correspondiente es:
+
+        \[ \intomega{N_l \left( \partialxx{T} + \partialyy{T} \right)} \]
+
+        Si se debilita para evitar la segunda derivada (e ignorando el término
+        en la frontera) se obtiene:
+
+        \[ \intomega{\left(\partialx{N_l}\partialx{T} + \partialy{N_l}\partialy{T}\right)} \]
+
+        Si se expresa $T$ como $T = \summ T_m N_m$ y se utiliza el método de
+        elementos finitos, la matriz elemental de cada elemento correspondiente al operador
+        laplaciano tiene la forma:
+
+        \[ K_{lm}^e = \intomegae{\left( \partialx{N_l}\partialx{N_m} + \partialy{N_l}\partialy{N_m}\right)} \]
+
+        Si se está trabajando con elementos triangulares genéricos, las funciones de forma $N_i$
+        se expresan como:
+
+        \[ N_i = \frac{a_i + b_i x + c_i y}{2A} \]
+
+        Donde $A$ es el área del elemento y los términos $a_i$, $b_i$ y $c_i$ se calculan
+        con las coordenadas de los nodos. Las derivadas parciales son entonces:
+
+        \begin{eqnarray*}
+            \partialx{N_i} &=& \frac{b_i}{2A} \\
+            \partialy{N_i} &=& \frac{c_i}{2A}
+        \end{eqnarray*}
+
+        La matriz elemental toma entonces la forma
+
+        \begin{eqnarray*}
+            K_{lm}^e &=& \intomegae{\left( \partialx{N_l}\partialx{N_m} + \partialy{N_l}\partialy{N_m}\right)} \\
+            &=& \intomegae{\frac{b_l b_m + c_l c_m}{4 A^2}} \\
+            &=& \frac{b_l b_m + c_l c_m}{4 A^2} \intomegae{} \\
+            &=& \frac{b_l b_m + c_l c_m}{4 A^2} A \\
+            &=& \frac{b_l b_m + c_l c_m}{4 A} \\
+        \end{eqnarray*}
+
+        Si en cambio se utilizan elementos cuadrangulares bilineales alineados con los ejes,
+        las funciones de forma son:
+
+        \begin{eqnarray*}
+            N_i &=& \frac{(x_k-x)(y_k-y)}{A} \\
+            N_j &=& \frac{(x-x_i)(y_k-y)}{A} \\
+            N_k &=& \frac{(x-x_i)(y-y_i)}{A} \\
+            N_l &=& \frac{(x_k-x)(y-y_i)}{A} \\
+        \end{eqnarray*}
+
+        Donde el nodo $i$ corresponde a la esquina inferior izquierda y el resto se numera
+        en sentido antihorario, $x_i$ e $y_i$ son las coordenadas del nodo $i$ y
+        $x_k$ e $y_k$ son las coordenadas del nodo $k$.
+
+        Las derivadas parciales correspondientes son:
+
+        \[
+            \begin{array}{llll}
+                \partialx{N_i} = \frac{y_k-y}{A} & 
+                \partialx{N_j} = \frac{y_k-y}{A} & 
+                \partialx{N_k} = \frac{y-y_y}{A} & 
+                \partialx{N_l} = \frac{y-y_y}{A} \\[0.25cm]
+                \partialy{N_i} = \frac{x_k-x}{A} & 
+                \partialy{N_j} = \frac{x-x_i}{A} & 
+                \partialy{N_k} = \frac{x-x_i}{A} & 
+                \partialy{N_l} = \frac{x_k-x}{A} \\
+            \end{array}
+        \]
+        
+        Usando estas derivadas en $K_{lm}^e = \intomegae{\left( \partialx{N_l}\partialx{N_m} + 
+        \partialy{N_l}\partialy{N_m}\right)}$ se obtiene la matriz elemental deseada.
+        Nótese que, a diferencia de los elementos triangulares, los integrandos no son
+        constantes y por lo tanto se debe integrar para cada componente de la matriz.
+    }
+    \item{ % 2)
+        El residuo en el interior del dominio es:
+
+        \[ R_\Omega = k\left(\partialxx{T} + \partialyy{T}\right) + Q(x, y) \]
+
+        mientras que en los contornos con condiciones Neumann y Robin es, respectivamente:
+
+        \begin{eqnarray*}
+        R_{\Gamma_q} &=& k \partialn{T} + \bar{q} \\
+        R_{\Gamma_h} &=& h\left(T-T_\infty\right) + k \partialn{T}
+        \end{eqnarray*}
+
+        En el problema dado, la normal apunta hacia la dirección negativa de las $x$ en el
+        caso Neumann y para la dirección positiva de las $y$ en el Robin, por lo que podemos
+        reescribir esto como:
+
+        \begin{eqnarray*}
+        R_{\Gamma_q} &=& -k \partialx{T} + \bar{q} \\
+        R_{\Gamma_h} &=& h\left(T-T_\infty\right) + k \partialy{T}
+        \end{eqnarray*}
+
+        Utilizando estos residuos en el método de residuos ponderados, usando Galerkin y
+        aplicando el método de elementos finitos y debilitando, se llega a la siguiente ecuación
+        (donde no se colocan las sumatorias en $T_m$ por comodidad):
+
+        \begin{eqnarray*}
+            &&\intomegae{k \left[ \partialx{N_l}\partialx{N_m} + \partialy{N_l}\partialy{N_m}\right]} 
+            - \int_{\Gamma_h^e} \frac{h}{k} N_l N_m \dgamma
+            =\\
+            &&\intomegae{N_l Q(x,y)} + \int_{\Gamma_q^e} \frac{\bar{q}}{k}\dgamma
+            - \int_{\Gamma_h^e} \frac{h T_\infty}{k} \dgamma
+        \end{eqnarray*}
+        
+        A continuación se muestra el resultado obtenido dividiendo la placa en ocho elementos:
+
+        \includegraphics[width=\textwidth]{ej2.png}
+    }
+    \item{ % 3)
+        En \href{http://youtu.be/ZxNBwtYpoPg}{este video} puede observarse cómo se distribuye la temperatura
+        en el cuerpo. (Ignórese el cuadrado correspondiente al agujero interior y los triángulos
+        arriba a la derecha y abajo a la derecha, que aparecen por graficar usando la triangulación
+        Delaunay.) Para obtener este resultado se utilizó un esquema temporal explícito con un paso
+        de tiempo de $0.01$. El mallado utilizado no corresponde exactamente al dado en el ejercicio si no
+        a uno obtenido con GID.
+    }
+\end{enumerate}
+\end{document}

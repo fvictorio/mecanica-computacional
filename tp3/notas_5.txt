@@ -1,0 +1,10 @@
+A(phi) = divergencia(sigma) + b = 0
+
+σ = Dε = D(∂φ/∂x)
+∂σ/∂x = D(∂^2φ/∂^2x)
+
+A(φ) = D(∂^2φ/∂^2x) + bx = 0
+
+int((∂Nl/∂x)*(∂Nm/∂x)*A) - int(Nl*bx*A) - [Nl*(∂Nm/∂x)*A] = 0
+
+Y habría que sumarle la condición de borde de la fuerza puntual
